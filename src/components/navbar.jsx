@@ -7,7 +7,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faCube } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useContext, useState } from "react";
 import MyContext from "../Context/myContext";
 
@@ -31,7 +31,7 @@ const isAdmin = email === "admin@ecommerce.com";
     <>
       <Navbar className="bg-body-tertiary p-1 mt-0 mb-0 extra shadow-sm position-sticky top-0 z-3" expand="lg">
         <Container>
-          <Navbar.Brand href=".././" className="me-auto d-flex m-2" >
+          <Navbar.Brand as={Link} to="/"  className="me-auto d-flex m-2" >
             <span className="logo"><FontAwesomeIcon icon={faCube} size="2x" className="me-2" /></span>
             <span className="logo">E-Commerce</span>
           </Navbar.Brand>
@@ -59,11 +59,11 @@ const isAdmin = email === "admin@ecommerce.com";
               <Button className="me-3" variant="light" onClick={()=>navigate('/all-products')}>
                 Products
               </Button>
-              {isAdmin && (
+              
                 <Button className="me-3" variant="light" onClick={()=>navigate('/dashboard')}>
                   Dashboard
                 </Button>
-              )}
+             
               {!userLoggedIn && (<Button className="me-3" variant="light" onClick={()=>navigate('/signin')}>
                 Login
               </Button>)}
